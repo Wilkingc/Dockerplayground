@@ -1,5 +1,5 @@
 {
-  "name": "Data Science Bootcamp",
+  "name": "Data Science Class",
   "build": {
     "dockerfile": "Dockerfile"
   },
@@ -13,5 +13,10 @@
     }
   },
   "forwardPorts": [8888],
-  "postCreateCommand": "pip install --user -r requirements.txt"
+  "postCreateCommand": "pip install --user -r requirements.txt",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+        "version": "3.9"
+    }
+  }
 }
