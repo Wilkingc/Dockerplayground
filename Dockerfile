@@ -1,12 +1,20 @@
-FROM jupyter/scipy-notebook:python-3.9
+FROM python:3.9
 
-WORKDIR /app
+# Set environment variables
+ENV PYTHONUNBUFFERED=1
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Set the working directory
+WORKDIR /workspace
 
-COPY . .
+# Copy dependencies
+COPY requirements.txt requirements.txt
 
+# Install dependencies
+RUN pip install --upgrade pip && \
+    pip install -r requirements.txt
+
+# Expose necessary ports
 EXPOSE 8888
 
-CMD ["jupyter", "notebook", "--ip", "0.0.0.0", "--port", "8888", "--allow-root", "--no-browser"]
+# Default command
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
