@@ -1,7 +1,50 @@
-.ipynb_checkpoints/
-.DS_Store
-__pycache__/
+# Python-specific ignores
 *.pyc
-*.pyo
-*.swp
-*.swo
+__pycache__/
+.vscode/
+.env
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Data files (if you don't want to track them)
+*.csv
+*.tsv
+*.json
+*.parquet
+*.feather
+*.h5
+*.hdf5
+data/
+
+# Virtual environments (if you use tools other than venv)
+.idea/
+.vscode/
+dist/
+build/
+*.egg-info/
+.mypy_cache/
+__pycache__/
+.tox/
+.coverage
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+.hypothesis/
+.pytest_cache/
+.DS_Store
+
+# Docker related
+.dockerignore
