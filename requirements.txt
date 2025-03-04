@@ -6,3 +6,4 @@ seaborn
 jupyterlab
 plotly
 requests
+ipykernel
