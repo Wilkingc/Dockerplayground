@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.9-slim #Using slim is a best practice.
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
@@ -11,7 +11,7 @@ COPY requirements.txt requirements.txt
 
 # Install dependencies
 RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
+    pip install --no-cache-dir -r requirements.txt
 
 # Expose necessary ports
 EXPOSE 8888
