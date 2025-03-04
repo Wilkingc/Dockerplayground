@@ -12,5 +12,6 @@
       ]
     }
   },
-  "forwardPorts": [8888]
+  "forwardPorts": [8888],
+  "postCreateCommand": "pip install --user -r requirements.txt"
 }
