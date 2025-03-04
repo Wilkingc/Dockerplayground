@@ -1,7 +1,8 @@
-pandas
 numpy
+pandas
+scikit-learn
+matplotlib
 seaborn
-requests
-notebook
 jupyterlab
-docker
+plotly
+requests
