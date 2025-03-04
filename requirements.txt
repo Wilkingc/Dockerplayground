@@ -1,12 +1,7 @@
 pandas
 numpy
-matplotlib
-scikit-learn
 seaborn
 requests
 notebook
 jupyterlab
-torch
-transformers
-xgboost
 docker
