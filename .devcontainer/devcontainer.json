@@ -1,15 +1,17 @@
 {
-    "name": "Data Science Environment",
-    "build": {
-        "dockerfile": "../Dockerfile"
-    },
-    "forwardPorts": [8888],
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "ms-python.python",
-                "ms-toolsai.jupyter"
-            ]
-        }
+  "name": "Data Science Bootcamp",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "redhat.vscode-yaml"
+      ]
     }
+  },
+  "forwardPorts": [8888],
+  "postCreateCommand": "pip install -r requirements.txt"
 }
