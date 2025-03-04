@@ -2,6 +2,11 @@ pandas
 numpy
 matplotlib
 scikit-learn
+seaborn
 requests
-os
-sklearn
+notebook
+jupyterlab
+torch
+transformers
+xgboost
+docker
