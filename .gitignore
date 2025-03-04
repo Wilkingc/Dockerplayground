@@ -19,32 +19,7 @@ Thumbs.db
 *.log
 
 # Data files (if you don't want to track them)
-*.csv
-*.tsv
-*.json
-*.parquet
-*.feather
-*.h5
-*.hdf5
 data/
-
-# Virtual environments (if you use tools other than venv)
-.idea/
-.vscode/
-dist/
-build/
-*.egg-info/
-.mypy_cache/
-__pycache__/
-.tox/
-.coverage
-.coverage
-.cache
-nosetests.xml
-coverage.xml
-.hypothesis/
-.pytest_cache/
-.DS_Store
 
 # Docker related
 .dockerignore
