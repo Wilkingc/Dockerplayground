@@ -1,0 +1,65 @@
+name: Code and Notebook Review
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11" # Or your desired Python version
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt # If you have a requirements.txt
+
+      - name: Lint with flake8 (Python)
+        uses: py-actions/flake8@v2
+        with:
+          max-line-length: 120
+
+      - name: Format code with black (Python)
+        uses: psf/black@stable
+        with:
+          options: "--check --verbose"
+
+      - name: Lint notebooks with nbqa (Jupyter)
+        run: |
+          pip install nbqa flake8
+          nbqa flake8 .
+
+      - name: Execute Jupyter notebooks with papermill (Jupyter)
+        run: |
+          pip install papermill
+          for notebook in $(find . -name "*.ipynb"); do
+            papermill "$notebook" "output_$notebook"
+          done
+
+      - name: Security check with bandit (Python)
+        run: |
+          pip install bandit
+          bandit -r .
+
+      - name: Check dependencies with safety (Python)
+        run: |
+          pip install safety
+          safety check --full-report
+
+      - name: Commit notebook output (optional)
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add output_*.ipynb
+          git diff-index --quiet HEAD || git commit -m "Update notebook outputs"
+          git push
