@@ -1,5 +1,5 @@
 {
-  "image": "ghcr.io/wilkingc/jupyter-test-data:latest",
+  "image": "ghcr.io/your-org/cnm-datascience-jupyter:latest",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -7,5 +7,6 @@
         "ms-toolsai.jupyter"
       ]
     }
-  }
+  },
+  "forwardPorts": [8888]
 }
